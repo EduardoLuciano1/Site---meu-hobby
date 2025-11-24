@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEU HOBBY</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #121212;
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+       
+        header {
+            background-color: #1a1a1a;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            color: #ff5722;
+            background-color: rgba(255, 87, 34, 0.1);
+        }
+        
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: fadeInDown 1s ease;
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff5722;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .btn:hover {
+            background-color: #e64a19;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+        }
+        
+      
+        section {
+            padding: 80px 0;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #ff5722;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #ff5722;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+        }
+        
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ff5722;
+        }
+        
+        .card p {
+            margin-bottom: 20px;
+        }
+        
+        
+        #cs2 {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://cdn.fastly.steamstatic.com/apps/csgo/images/csgo_react/social/cs2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        #cs2 .card {
+            background-color: rgba(30, 30, 30, 0.85);
+            backdrop-filter: blur(5px);
+        }
+        
+        #dayz {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://dayz.com/img/dayz-og-thumb.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        #dayz .card {
+            background-color: rgba(30, 30, 30, 0.85);
+            backdrop-filter: blur(5px);
+        }
+        
+       
+        footer {
+            background-color: #1a1a1a;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+        
+        footer p {
+            margin-bottom: 10px;
+        }
+        
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            #cs2, #dayz {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+<body>
+   
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#fps">O que é FPS</a></li>
+                <li><a href="#cs2">CS2</a></li>
+                <li><a href="#dayz">DayZ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>MEU HOBBY</h1>
+            <p>Jogos de FPS - First Person Shooter</p>
+            
+        </div>
+    </section>
+
+    
+    <section id="fps">
+        <div class="container">
+            <h2>O que é FPS?</h2>
+            <div class="content">
+                <div class="card">
+                    <p>FPS significa First Person Shooter, nada mais é do que uma classe de Jogos, onde você é um jogador, e luta com armas com outros jogadores com visão em primeira pessoa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section id="cs2">
+        <div class="container">
+            <h2>Counter Strike 2</h2>
+            <div class="content">
+                <div class="card">
+                    <p>O jogo consiste em equipes que se enfrentam, os Counter-terrorists e os Terrorists, os counter-terrorists tem o objetivo de eliminar os terroristas, e se caso a bomba for plantada nos pontos A ou B no mapa, eles devem defusar a bomba. Já os Terrorists, devem eliminar os Counter-terrorists, e plantar a bomba em um dos pontos ditos anteriormente.</p>
+                    <p>O Counter Strike 2 é uma nova versão de uma modificação de um jogo chamado Half Life, feita pela Valve (uma empresa de jogos). Começou como Counter Strike 1.5, depois 1.6, e se consolidou com o CS:GO. O jogo cresceu bastante por conta de campeonatos de E-Sports, como o Major, que é a copa do mundo dos times de CS, nesse meio, ícones apareceram, jogadores como Fallen e Gaulês, que inspiraram até nomes de posição no jogo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section id="dayz">
+        <div class="container">
+            <h2>DayZ</h2>
+            <div class="content">
+                <div class="card">
+                    <p>O DayZ, distribuído pela Bohemia Interactive Studio, também surgiu de uma modificação, foi de um jogo chamado Arma, dos quais há o Arma I, o Arma II e o Arma III. O DayZ é um jogo de sobrevivência em primeira e terceira pessoa, do qual você está em um mapa de mundo aberto, com vários outros jogadores, onde você pode montar grupos, batalhar contra outros jogadores, e seu objetivo principal é se manter vivo.</p>
+                    <p>É considerado o jogo de sobrevivência mais realista que existe, tendo fome, sede, temperatura, diversas doenças, e por aí vai.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+    <footer>
+        <div class="container">
+            <p>MEU HOBBY - Jogos FPS</p>
+            
+        </div>
+    </footer>
+
+    <script>
+        
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
